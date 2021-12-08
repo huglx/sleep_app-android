@@ -1,4 +1,4 @@
-package com.task.di
+package com.hugl.sleepapp.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

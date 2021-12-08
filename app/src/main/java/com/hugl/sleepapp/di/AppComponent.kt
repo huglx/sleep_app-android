@@ -1,7 +1,6 @@
 package com.hugl.sleepapp.di
 
 import com.hugl.sleepapp.Application
-import com.task.di.ViewModelModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
