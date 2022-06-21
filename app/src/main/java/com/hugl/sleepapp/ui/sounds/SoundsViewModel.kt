@@ -1,4 +1,4 @@
-package com.hugl.sleepapp.ui
+package com.hugl.sleepapp.ui.sounds
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -12,18 +12,10 @@ import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(private val dataRepository: DataRepository) : BaseViewModel() {
+class SoundsViewModel @Inject constructor(private val dataRepository: DataRepository) : BaseViewModel() {
     val  testLiveData: LiveData<Resource<List<Test>>> get() = testLiveDataPrivate
     private val testLiveDataPrivate = MutableLiveData<Resource<List<Test>>>()
-
-
     fun initIntentData() {
-        viewModelScope.launch {
-            testLiveDataPrivate.value = Resource.Loading()
-            dataRepository.requestTest().collect {
-                testLiveDataPrivate.value = it
-            }
-        }
     }
 
 }
