@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.stories.StoriesActivity">
 
     <data>
         <variable
             name="viewModel"
-            type="com.hugl.sleepapp.ui.main.MainViewModel" />
+            type="com.hugl.sleepapp.ui.stories.StoriesViewModel" />
     </data>
     <RelativeLayout
         android:background="@color/colorPrimary"
@@ -28,13 +28,13 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="stories"
             android:layout_centerInParent="true"
-            >
-        </androidx.recyclerview.widget.RecyclerView>
+            android:textColor="@color/colorAccent"
+            />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -43,9 +43,7 @@
             android:layout_alignParentBottom="true"
             android:background="@color/colorBlack"
             app:itemIconTint="@color/colorWhite"
-            app:menu="@menu/bottom_navigation_menu">
-
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
+            app:menu="@menu/bottom_navigation_menu" />
 
     </RelativeLayout>
 </layout>

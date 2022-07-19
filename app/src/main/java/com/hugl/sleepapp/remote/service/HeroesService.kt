@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface TestService {
     @GET("files")
-    suspend fun fetchHeroes(): Response<List<Test>>
+    suspend fun fetchFiles(): Response<List<Test>>
 }

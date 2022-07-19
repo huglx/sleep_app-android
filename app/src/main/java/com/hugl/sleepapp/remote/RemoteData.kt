@@ -15,7 +15,7 @@ constructor(private val serviceGenerator: ServiceGenerator, private val networkC
 
     override suspend fun requestTest(): Resource<List<Test>> {
         val testService = serviceGenerator.createService(TestService::class.java)
-        return when (val response = processCall(testService::fetchHeroes)) {
+        return when (val response = processCall(testService::fetchFiles)) {
             is List<*> -> {
                 Resource.Success(data = response as List<Test>)
             }

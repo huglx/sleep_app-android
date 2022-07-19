@@ -8,6 +8,9 @@
         <entry key="..\:/sleep_app-android/app/src/main/res/drawable/ic_read.xml" value="0.1984375" />
         <entry key="..\:/sleep_app-android/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
         <entry key="..\:/sleep_app-android/app/src/main/res/layout/activity_sounds.xml" value="0.18229166666666666" />
+        <entry key="..\:/sleep_app-android/app/src/main/res/layout/activity_stories.xml" value="0.18229166666666666" />
+        <entry key="..\:/sleep_app-android/app/src/main/res/layout/list_following.xml" value="0.16822916666666668" />
+        <entry key="..\:/sleep_app-android/app/src/main/res/layout/list_following_item.xml" value="0.22" />
         <entry key="..\:/sleep_app-android/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
         <entry key="..\:/sleep_app-android/app/src/main/res/menu/top_app_bar.xml" value="0.18229166666666666" />
       </map>

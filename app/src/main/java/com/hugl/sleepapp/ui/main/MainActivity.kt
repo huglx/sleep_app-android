@@ -2,12 +2,15 @@ package com.hugl.sleepapp.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hugl.sleepapp.R
 import com.hugl.sleepapp.databinding.ActivityMainBinding
 import com.hugl.sleepapp.model.Test
 import com.hugl.sleepapp.remote.Resource
 import com.hugl.sleepapp.ui.base.BaseActivity
 import com.hugl.sleepapp.ui.sounds.SoundsActivity
+import com.hugl.sleepapp.ui.stories.StoriesActivity
 import com.hugl.sleepapp.utils.ViewModelFactory
 import com.hugl.sleepapp.utils.observe
 import dagger.android.AndroidInjection
@@ -20,6 +23,8 @@ class MainActivity : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     private lateinit var bindings: ActivityMainBinding
+
+    private lateinit var adapter: FollowingItemsAdapter
 
     override fun initViewModel() {
         viewModel = viewModelFactory.create(viewModel::class.java)
@@ -38,7 +43,9 @@ class MainActivity : BaseActivity() {
     private fun test(resource: Resource<List<Test>>) {
         when (resource) {
             is Resource.Success -> resource.data?.let {
-              //  it[0].contentType?.let { it1 -> bindings.greetings.text = it1}
+                it.let { it1 -> adapter = FollowingItemsAdapter(it1)
+                    bindings.list.adapter=adapter
+                }
             }
 
             else -> {}
@@ -50,10 +57,9 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         viewModel.initIntentData()
         bottomNav()
-    }
-
-    override fun onBackPressed() {
-        //super.onBackPressed()
+        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        bindings.list.layoutManager = layoutManager
+        bindings.list.setHasFixedSize(true)
     }
 
     private fun bottomNav(){
@@ -67,6 +73,13 @@ class MainActivity : BaseActivity() {
                     }
                     R.id.page_1 -> {
                         startActivity(Intent(this@MainActivity,SoundsActivity::class.java))
+                        finish()
+                        overridePendingTransition(0, 0);
+                        true
+                    }
+                    R.id.page_3 -> {
+                        startActivity(Intent(this@MainActivity,StoriesActivity::class.java))
+                        finish()
                         overridePendingTransition(0, 0);
                         true
                     }
@@ -75,6 +88,11 @@ class MainActivity : BaseActivity() {
             }
         }
     }
+/*
+    private fun bindListData(test: List<Test>) {
+        adapter = FollowingItemsAdapter(test)
+        bindings.list.adapter=adapter
+    }*/
 
 
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.hugl.sleepapp.ui.main.MainViewModel
 import com.hugl.sleepapp.ui.sounds.SoundsViewModel
+import com.hugl.sleepapp.ui.stories.StoriesViewModel
 import com.hugl.sleepapp.utils.ViewModelFactory
 import dagger.Binds
 import dagger.Module
@@ -28,5 +29,10 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SoundsViewModel::class)
     abstract fun bindSoundsViewModel(viewModel: SoundsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(StoriesViewModel::class)
+    abstract fun bindStoriesViewModel(viewModel: StoriesViewModel): ViewModel
 
 }
